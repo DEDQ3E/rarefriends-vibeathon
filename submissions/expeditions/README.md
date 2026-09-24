@@ -30,7 +30,7 @@ The selected, ownership-verified Friend is the hero of every expedition. Its can
 | Expedition Pass (SDK chance game, repeatable) | 1 RF per pass | one find, worth 0.90 RF on average at the Merchant | 10% edge stays in the game bank; every pass reserves the 10 RF top prize, so the bank can always pay |
 | Outfitter (pure sink) | 3–8 RF per item, 29 RF for the full catalog | nothing: never refunded, no effect on odds | 50% burned, 50% to Friend rewards (proposed protocol split) |
 
-**Hold or redeem.** A find is a *productive keepsake*: while the Friend keeps it, it adds XP to every expedition, and selling it at the Merchant pays its fixed RF and gives the bonus up. Common +1%, Uncommon +2%, Rare +4.5%, Epic +8%, Legendary +17%, Mythic +36%, up to +50% in total. Rarer finds give more bonus per RF they hold back (2.5% per RF for a Common, 3.6% per RF for a Mythic), so the biggest prizes are the ones most worth keeping and **their RF stays in the game as backing** instead of returning to circulation. The bonus changes XP only, never odds, prices or finds.
+**Hold or redeem.** A find is a *productive keepsake*: while the Friend keeps it, it adds XP to every expedition, and selling it at the Merchant pays its fixed RF and gives the bonus up. Common +1%, Uncommon +2%, Rare +4.5%, Epic +8%, Legendary +17%, Mythic +36%, up to +50% in total. Rarer finds give more bonus per RF they hold back (2.5% per RF for a Common, 3.6% per RF for a Mythic), so the biggest prizes are the ones most worth keeping and **their RF stays in the game as backing** instead of returning to circulation. The bonus depends on rarity only, because the SDK inventory (and, live, the ERC-1155 balances) counts finds by rarity tier: a Rare from the forest, the cave or the ruins gives the same bonus. It changes XP only, never odds, prices or finds.
 
 **Per pass:** expected return 0.90 RF, standard deviation 1.34 RF, 23% chance of getting 1 RF or more back.
 
@@ -62,7 +62,7 @@ Only the find is a paid random outcome. In the preview it comes from the SDK's s
 
 ## Source code
 
-[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`75e87d7`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/75e87d7dd43fbf6dff70f9afe82ef21e8c65aa6e) · FriendSDK v0.1.2 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
+[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`e912d90`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/e912d90e70800bafb99695c736cee61d8923e3ca) · FriendSDK v0.1.2 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
 
 ## Playable demo / how to run
 
