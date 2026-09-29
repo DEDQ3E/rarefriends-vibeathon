@@ -22,7 +22,7 @@ A night camp from which your Rare Friend sets out on short expeditions, each pai
 
 ## How does it use Rare Friends?
 
-The selected, ownership-verified Friend is the hero of every expedition. Its canonical Generations frames are read through the SDK and drawn in the canonical look (black mask, white one-pixel halo), with its own shape and walk animation, and it is redrawn after rain, darkness and light overlays so nothing tints it. A 13-piece **wardrobe** (hats, a scarf, tops, capes, boots) is fitted to each Friend's own silhouette, frame by frame: hats sit on its real head and ears, horns and antennae poke through them, tops follow its own torso pixels, the cape follows its back and flutters while it moves, boots cover its own feet. Its outline, halo and shape are never changed, and one tap takes everything off to show its original artwork (FriendSDK allows costumes since v0.1.2). Its **family** picks one of nine perks and its **generation** (one read-only `generation(tokenId)` call on the Generations contract) sets the strength, from rank V for Generation 1 to rank I for Generation 5, so different Friends play differently. The SDK runtime handles the wallet, Friend selection and the ownership gate; the game adds no wallet code.
+The selected, ownership-verified Friend is the hero of every expedition. Its canonical Generations frames are read through the SDK and drawn in the canonical look (black mask, white one-pixel halo), with its own shape and walk animation, and it is redrawn after rain, darkness and light overlays so nothing tints it. A 13-piece **wardrobe** (hats, a scarf, tops, capes, boots) is fitted to each Friend's own silhouette, frame by frame: hats sit on its real head and ears, horns and antennae poke through them, tops follow its own torso pixels, the cape follows its back and flutters while it moves, boots cover its own feet. Its outline, halo and shape are never changed, and one tap takes everything off to show its original artwork (FriendSDK v0.1.4 allows costumes). Its **family** picks one of nine perks and its **generation** (one read-only `generation(tokenId)` call on the Generations contract) sets the strength, from rank V for Generation 1 to rank I for Generation 5, so different Friends play differently. The SDK runtime handles the wallet, Friend selection and the ownership gate; the game adds no wallet code.
 
 ## How RF is spent, and the economy
 
@@ -86,7 +86,7 @@ Only the find is a paid random outcome. In the preview it comes from the SDK's s
 
 ## Source code
 
-[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`4d6b330`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/4d6b3304681c17bc2bdd7692ca22c0f1311851de) · FriendSDK v0.1.4 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
+[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`89a9492`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/89a949273287402a06969c9454351de21d63518a) · FriendSDK v0.1.4 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
 
 ## Playable demo / how to run
 
@@ -97,7 +97,7 @@ To run locally with Node.js 22+ on Linux, Windows with WSL2 (both supported by F
 ```sh
 git clone https://github.com/DEDQ3E/rare-friends-expeditions.git
 cd rare-friends-expeditions
-git checkout 4d6b3304681c17bc2bdd7692ca22c0f1311851de
+git checkout 89a949273287402a06969c9454351de21d63518a
 npm ci
 npm run dev        # http://localhost:4173
 ```
