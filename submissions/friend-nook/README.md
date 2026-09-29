@@ -4,9 +4,9 @@
 
 🕹️ **Play: https://dedq3e.github.io/rare-friends-nook/**
 
-🎬 **Demo with sound (58 s):** recorded from the real SDK runtime with Sparkling Friend #66666 read live from mainnet (only the wallet is mocked; `tests/video.mjs`).
+🎬 **Demo with sound (62 s):** recorded from the real SDK runtime with Sparkling Friend #66666 read live from mainnet (only the wallet is mocked; `tests/video.mjs`).
 
-https://github.com/user-attachments/assets/143c917c-1daf-49af-ba5f-3dcf168109e9
+https://github.com/user-attachments/assets/3081a86d-9c9d-491c-8f63-ebbe96be1ca4
 
 
 **Project name**
@@ -23,7 +23,7 @@ Your Generations Friend lives in a cozy isometric house like a Sim, and everythi
 
 ## What did you build?
 
-A life sim with one star. The selected Friend moves into a 12 × 10 tile pixel house with a bedroom, a bathroom, a kitchen, a living room and a dining area, shown in isometric cut-away view with a day and night cycle. It has five needs (hunger, energy, fun, hygiene, social) and 32 things to do on 28 kinds of furniture: sleep, stargaze, bathe, cook, snack, eat dinner with you, watch TV, play video games, read, dance to the record player, play ball, paint, play the arcade and more. Click furniture to choose an action, or leave it alone and watch it choose by itself. The game opens close on the Friend, with the camera following it; the whole house is one tap away.
+A life sim with one star. The selected Friend moves into a 12 × 10 tile pixel house with a bedroom, a bathroom, a kitchen, a living room and a dining area, shown in isometric cut-away view with a day and night cycle and weather in the windows (cloudy, rain, snow, a storm). It has five needs (hunger, energy, fun, hygiene, social) and 32 things to do on 28 kinds of furniture: sleep, stargaze, bathe, cook, snack, eat dinner with you, watch TV, play video games, read, dance to the record player, play ball, paint, play the arcade and more. Click furniture to choose an action, or leave it alone and watch it choose by itself. The game opens close on the Friend, with the camera following it; the whole house is one tap away.
 
 The house is alive: the TV shows three channels and a video game, fish swim, the record turns, the pan sizzles, steam rises, bubbles pop in the bath, and the house has its own composed, synthesized soundtrack: a marimba morning, a swinging vibraphone afternoon, a lo-fi Rhodes evening, a music-box lullaby at night and a disco record to dance to, plus a sound for every activity. A hint always points to one thing in the house that raises the lowest need. Gift Boxes (the SDK chance game) give keepsakes for the hutch, and Buy mode adds furniture you place yourself. Everything lives inside the SDK's 960 × 640 container, with a compact layout for phones.
 
@@ -48,9 +48,9 @@ The Friend is the only character, and the game is about who it is.
 
   ![The day's recap card: Day 1 with Humippy](https://raw.githubusercontent.com/DEDQ3E/rare-friends-nook/main/media/recap.png)
 - **It sulks if you leave it alone.** Too long without attention and it sulks: an angry bubble, a line of its own family ("Even the clouds visited more.") and your requests refused until you make up by petting it, talking to it or opening a Gift Box together. Character decides how soon and how long: a Gen 1 sulks sooner and harder than a Gen 6, a Family Homebody fastest, a Hollow Introvert hardly ever.
-- **Simulated neighbours.** The front door opens a street of neighbours. FriendSDK has no multiplayer, so they are the SDK's two sample Friends (#3412, a Skeleton, and #7730, a Hoverer), played by the game and labelled *simulated* everywhere; they are not real players. Visit one's room (its own colour and family heirloom) and hug, say hi, dance or share a snack: how it goes depends on both characters ("Instant besties", "A bit awkward").
+- **Simulated neighbours.** The front door opens a street of neighbours. FriendSDK has no multiplayer, so they are the SDK's two sample Friends (#3412, a Skeleton, and #7730, a Hoverer), played by the game and labelled *simulated* everywhere; they are not real players. A visit takes your Friend into the neighbour's whole house, decorated by its own family like yours (the Skeleton's Moonlit Manor, the Hoverer's Cloud Loft), where the neighbour lives by itself with its own free will. Your Friend is the guest: click the floor to walk around, or hug, say hi, dance or share a snack, and your Friend walks over to the neighbour; how it goes depends on both characters ("Instant besties", "A bit awkward"). Visits have consequences: the neighbour remembers the last one and greets you by it ("You again! Another dance?" or "Oh... it's you."), a good time together fills your Friend's need for company, and a shared snack comes out of your own stock.
 
-  ![A simulated visit to a neighbour's room](https://raw.githubusercontent.com/DEDQ3E/rare-friends-nook/main/media/visit.png)
+  ![A simulated visit: Humippy dancing with Sux in Sux's Moonlit Manor](https://raw.githubusercontent.com/DEDQ3E/rare-friends-nook/main/media/visit.png)
 - **A relationship.** A *Meet your Friend* card opens first; seconds after the welcome the Friend makes its first own choice, something it loves, and the game says why on screen ("Humippy's own choice: float on the cloud — its family heirloom"; then at most once a minute); a diary records what it chose by itself, what it refused and which wishes you granted; friendship levels go from Stranger to Forever Friend.
 
 The SDK runtime handles the wallet, Friend selection and the ownership gate; the game adds no wallet code and never looks up other tokens.
@@ -93,18 +93,18 @@ Not only the SDK's sample Friend: `tests/friends.mjs` runs the game's real SDK r
 
 | Friend | Family · generation | Nickname | Temperament · strength | Favourite thing | Colour | Quirk | Chose by itself (first 4 in-game hours) |
 |---|---|---|---|---|---|---|---|
-| #87846 | Mask · Gen 1 | Rox | Performer · Legendary | Look through the telescope | Rose | Sleepyhead | Try on a mask ♥, Dance ♥, Cook a meal |
-| #65001 | Cellular · Gen 1 | Nuraki | Foodie · Legendary | Browse books | Plum | Chatterbox | Cook a meal ♥, Tend the cell garden ♥, Play video games |
-| #1969 | Asymmetry · Gen 1 | Veluri | Chaos Gremlin · Legendary | Stargaze | Mint | Early bird | Play video games ♥, Play video games ♥, Snack at the bar, Take a bath |
-| #15000 | Asymmetry · Gen 5 | Robo | Chaos Gremlin · Gentle | Cook a meal | Sunflower | Night snacker | Cook a meal ♥, Stack the wobbly tower ♥, Stack the wobbly tower ♥, Nap |
-| #7730 | Hoverer · Gen 3 | Humippy | Dreamer · Distinct | Play arcade | Sunflower | Quiet one | Float on the cloud ♥, Snack at the bar, Play with toys |
-| #20838 | Colossus · Gen 3 | Yeps | Gentle Giant · Distinct | Watch the fish | Coral | Sky watcher | Daydream ♥, Cook a meal, Play video games |
-| #66666 | Sparkling · Gen 3 | Kikosh | Style Icon · Distinct | Relax | Moss | Sleepyhead | Dance under the mirror ball ♥, Take a bath ♥, Grab a snack, Read |
-| #77777 | Skeleton · Gen 4 | Daluno | Night Owl · Clear | Watch the fish | Mint | Sleepyhead | Watch TV ♥, Snack at the bar, Watch TV ♥ |
-| #444 | Skeleton · Gen 6 | Kozzy | Night Owl · Mild | Play with toys | Moss | Night snacker | Play with toys ♥, Cook a meal, Nap |
-| #88888 | Family · Gen 5 | Luli | Homebody · Gentle | Flop on the bean bag | Lavender | Night snacker | Look at family photos ♥, Cook a meal, Read, Read |
+| #87846 | Mask · Gen 1 | Rox | Performer · Legendary | Look through the telescope | Rose | Sleepyhead | Admire self ♥, Try on a mask ♥, Snack at the bar, Nap |
+| #65001 | Cellular · Gen 1 | Nuraki | Foodie · Legendary | Browse books | Plum | Chatterbox | Snack at the bar ♥, Tend the cell garden ♥, Play video games, Snack at the bar ♥ |
+| #1969 | Asymmetry · Gen 1 | Veluri | Chaos Gremlin · Legendary | Stargaze | Mint | Early bird | Play video games ♥, Play video games ♥, Cook a meal |
+| #15000 | Asymmetry · Gen 5 | Robo | Chaos Gremlin · Gentle | Cook a meal | Sunflower | Night snacker | Play video games ♥, Cook a meal ♥, Play with toys ♥ |
+| #7730 | Hoverer · Gen 3 | Humippy | Dreamer · Distinct | Play arcade | Sunflower | Quiet one | Float on the cloud ♥, Snack at the bar, Play video games |
+| #20838 | Colossus · Gen 3 | Yeps | Gentle Giant · Distinct | Watch the fish | Coral | Sky watcher | Watch TV ♥, Watch TV ♥ |
+| #66666 | Sparkling · Gen 3 | Kikosh | Style Icon · Distinct | Relax | Moss | Sleepyhead | Admire self ♥, Dance under the mirror ball ♥, Take a bath ♥ |
+| #77777 | Skeleton · Gen 4 | Daluno | Night Owl · Clear | Watch the fish | Mint | Sleepyhead | Watch TV ♥, Grab a snack ♥, Watch TV ♥ |
+| #444 | Skeleton · Gen 6 | Kozzy | Night Owl · Mild | Play with toys | Moss | Night snacker | Watch TV ♥, Cook a meal, Nap |
+| #88888 | Family · Gen 5 | Luli | Homebody · Gentle | Flop on the bean bag | Lavender | Night snacker | Look at family photos ♥, Play video games, Snack at the bar, Look at family photos ♥, Look at family photos ♥ |
 
-♥ = something it loves. Every first choice was something it loves, each for its own reason: Rox (Mask), Humippy (Hoverer), Kikosh (Sparkling) and Luli (Family) went straight to their family heirlooms; Robo (Asymmetry) and Kozzy (Skeleton) picked their own favourites, cooking and toys, and those secrets were found on the spot; Yeps (Colossus) daydreamed because of its quirk, Sky watcher; the rest followed their temperament. The token matters as much as the family: the Skeletons Daluno (Gen 4) and Kozzy (Gen 6) share one, yet Daluno watched TV like a Night Owl while Kozzy went for the toys; the Asymmetries Veluri (Gen 1) and Robo (Gen 5) both love games, but Robo started at the stove, its own favourite, and then stacked the wobbly tower. Each lives in its family home: the two Skeletons in Moonlit Manor, the two Asymmetries in the Funhouse, Humippy in the Cloud Loft.
+♥ = something it loves. Every first choice was something it loves, each for its own reason: Humippy (Hoverer) and Luli (Family) went straight to their family heirlooms; the rest followed their temperament: Rox (Mask) and Kikosh (Sparkling) admired themselves, Nuraki (Cellular) headed for the snack bar, and the Night Owls and the Gentle Giant turned on the TV. The token matters as much as the family: the Skeletons Daluno (Gen 4) and Kozzy (Gen 6) both started with the TV, but Daluno kept at it between snacks while Kozzy went on to cook and nap; the Asymmetries Veluri (Gen 1) and Robo (Gen 5) both love games, but only Robo moved on to cooking, its own favourite, and toys. Each lives in its family home: the two Skeletons in Moonlit Manor, the two Asymmetries in the Funhouse, Humippy in the Cloud Loft.
 
 
 ## How RF is spent, and the economy
@@ -118,7 +118,7 @@ Four RF sinks, all simulated in the preview: **Gift Boxes** (1 RF, the SDK chanc
 | **Gift Box** (SDK chance game) | 1 RF per box | one keepsake, worth 0.9165 RF on average when sold back | 8.35% edge stays in the game fund; every box reserves the 5 RF top prize |
 | **Food** (consumed by actions) | Snack pack ×4: 1 RF · Groceries ×3 meals: 2 RF | snacks for the fridge and bar, meals for the stove and family dinner | 50% burned, 50% to Friend rewards (proposed split) |
 | **Wardrobe** (cosmetic) | 2–5 RF per piece, 32 RF for all ten | nothing: never refunded | 50% burned, 50% to Friend rewards |
-| **Buy mode** (durable furniture) | 2–6 RF per piece, 37 RF for all nine | new activities; pieces can be moved or put away, never refunded | 50% burned, 50% to Friend rewards |
+| **Buy mode** (durable furniture) | 2–6 RF per piece, 37 RF for all nine | new activities; pieces it loves make its needs drop slower, ones it dislikes faster; pieces can be moved or put away, never refunded | 50% burned, 50% to Friend rewards |
 
 **Keepsakes** (outcomes of `game.json`, same order):
 
@@ -134,7 +134,7 @@ Friendship from a gift grows with character strength (×1 to ×1.5), is ×1.5 fo
 
 **Per box:** expected return 0.9165 RF, standard deviation 0.934 RF, 27% chance of getting 1 RF or more back. **Sessions** (exact distribution, every keepsake sold): 10 boxes return 9.17 RF on average (median 8.75, 90th percentile 13.10, 33.4% of sessions end ahead); 30 boxes return 27.50 RF (median 27.10, 90th percentile 34.30, 29.5% ahead).
 
-Why players keep spending: food runs out (a Foodie eats faster), furniture opens new activities its family loves (a Hoverer lights up at the telescope), outfits are fitted to its own body, and wishes and friendship reward looking after it. Personality never changes prices, odds or rewards.
+Why players keep spending: food runs out (a Foodie eats faster), furniture opens new activities its family loves (a Hoverer lights up at the telescope) and a home full of things it loves keeps it happier for longer, while a piece it dislikes makes it grumble, outfits are fitted to its own body, and wishes and friendship reward looking after it. Personality never changes prices, odds or rewards.
 
 </details>
 
@@ -160,7 +160,7 @@ The hutch would read the Friend wallet's keepsake balances. Food, clothes and fu
 
 ## Source code
 
-https://github.com/DEDQ3E/rare-friends-nook (reviewed commit: [`5e028fa`](https://github.com/DEDQ3E/rare-friends-nook/tree/5e028facee8e0d8e8b577db050b7a93b94b073d5)). FriendSDK v0.1.3, React 19, TypeScript, Canvas 2D, Web Audio. Everything is drawn and synthesized in code; no image or sound files.
+https://github.com/DEDQ3E/rare-friends-nook (reviewed commit: [`2e8ba84`](https://github.com/DEDQ3E/rare-friends-nook/tree/2e8ba842cc8891af70b5a1337c3f7de97cf5b2f8)). FriendSDK v0.1.3, React 19, TypeScript, Canvas 2D, Web Audio. Everything is drawn and synthesized in code; no image or sound files.
 
 ## Playable demo / how to run
 
@@ -171,7 +171,7 @@ https://github.com/DEDQ3E/rare-friends-nook (reviewed commit: [`5e028fa`](https:
 ```sh
 git clone https://github.com/DEDQ3E/rare-friends-nook.git
 cd rare-friends-nook
-git checkout 5e028facee8e0d8e8b577db050b7a93b94b073d5
+git checkout 2e8ba842cc8891af70b5a1337c3f7de97cf5b2f8
 npm ci
 npm run dev
 ```
@@ -183,7 +183,7 @@ On Windows, `play.bat` serves the prebuilt `docs/` folder on http://localhost:41
 - Click or tap furniture to choose what your Friend does; click the floor to walk. Arrows / WASD walk, `E` uses the nearest thing, `F` talks to your Friend, `Esc` closes.
 - Keep its five needs up. The panel names the lowest need and points (with an arrow in the house) to one thing that raises it; one tap sends your Friend there.
 - Find its four secrets by watching, feeding and talking to it; at 22:00 the day ends with a recap card.
-- The front door visits a simulated neighbour. Leave your Friend alone too long and it sulks; pet it or talk to it to make up.
+- The front door visits a simulated neighbour's house: click the floor to walk, or pick something to do together. Leave your Friend alone too long and it sulks; pet it or talk to it to make up.
 - Leave it alone and it lives its own life, choosing by need and by taste. Grant its wishes (thought bubbles) for friendship; it may refuse things it dislikes.
 - Pet it, talk to it, open Gift Boxes with it. Buy food, clothes and furniture; place furniture anywhere free (arrows move it, `R` rotates).
 - The camera button makes a random meme about your Friend; *Another meme* rolls again.
