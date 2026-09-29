@@ -86,7 +86,7 @@ Only the find is a paid random outcome. In the preview it comes from the SDK's s
 
 ## Source code
 
-[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`950c292`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/950c2928dc97d0a3cf27aaea0277d6cfcf1aea77) · FriendSDK v0.1.3 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
+[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`3781ba3`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/3781ba33532012cfcf50ac101d46f38373372d0e) · FriendSDK v0.1.3 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
 
 ## Playable demo / how to run
 
@@ -97,7 +97,7 @@ To run locally with Node.js 22+ on Linux, Windows with WSL2 (both supported by F
 ```sh
 git clone https://github.com/DEDQ3E/rare-friends-expeditions.git
 cd rare-friends-expeditions
-git checkout 950c2928dc97d0a3cf27aaea0277d6cfcf1aea77
+git checkout 3781ba33532012cfcf50ac101d46f38373372d0e
 npm ci
 npm run dev        # http://localhost:4173
 ```
@@ -133,7 +133,9 @@ Pickups give 1 XP each plus a bonus for reaching the chest (doubled without a hi
 | Golden Scarab | Legendary | 3% | 5 RF | +17% XP |
 | Heart of the Forest | Mythic | 1% | 10 RF | +36% XP |
 
-Expected reward **0.90 RF per pass** (10% game edge, the same expected reward as the SDK fishing example). Each purchased pass reserves the 10 RF top prize; kept finds retain backing and have no redemption expiry. **Outfitter purchases are never refunded**: 50% is burned and 50% goes to Friend rewards (proposed split, simulated on top of the SDK ledger because FriendSDK v0.1.3 has no upgrade API). Nothing in the Outfitter changes RF odds.
+Expected reward **0.90 RF per pass** (10% game edge, the same expected reward as the SDK fishing example). Each purchased pass reserves the 10 RF top prize; kept finds retain backing and have no redemption expiry. **Outfitter purchases are never refunded**: 50% is burned and 50% goes to Friend rewards (proposed split, simulated on top of the SDK ledger because FriendSDK v0.1.3 has no upgrade API).
+
+**RF prices are placeholders.** The amounts in this preview (a 1 RF pass, 0.4–10 RF finds, 0.2–8 RF Outfitter items) only show the proportions. To price the game higher, multiply every RF amount by the same factor: the pass price and every find reward in `game.json`, the Outfitter and Trail Ration prices and the 20 RF starting balance. The odds, the 90% expected return, the 10% edge, the 23% chance to get the pass price or more back, the keepsake bonuses and the glow stay exactly the same, and every RF figure in the tables above (sessions, the 1,000-player model) scales by that factor; only the "bonus per RF held" figures divide by it. `npm run economy` checks the odds, the expected return and the session statistics at five times the prices. Nothing in the Outfitter changes RF odds.
 
 ## What have you tested?
 
