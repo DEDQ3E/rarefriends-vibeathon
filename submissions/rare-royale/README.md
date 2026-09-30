@@ -18,7 +18,7 @@
 | A medkit (1 RF), bought below half HP | 7% → 11% |
 | A second life (2 RF), bought when knocked down | 0% → 5% |
 
-A smart drop takes RF from other entrants, never from the burn: the quietest place returns 1.00 RF per entry, the busiest 0.59 RF. The three tactics return within 5% of each other.
+A smart drop takes RF from other entrants, never from the burn: the quietest place about breaks even (1.00 RF per entry), the busiest returns 0.59 RF. The three tactics return within 5% of each other.
 
 **Project name**
 Rare Royale
@@ -39,7 +39,7 @@ Rounds of about four and a half minutes: a one-minute lobby (pick a drop and a t
 Your ownership-verified Friend fights as itself, drawn from its canonical sprite, with Might, Speed and Wits from its family, generation and sprite seed, and a signature ability for each of the nine families. The other 49 are real Generations Friends from a roster of 300 (public reads only). The hall of fame reads the RF token's live `totalSupply`. The SDK handles the wallet, Friend selection and the ownership gate.
 
 **How RF is spent and burned**
-Four ways to spend: the entry, sponsoring any Friend, shouts and Locker cosmetics. Every payment except the entry burns 50% and funds 50% active Friend rewards (the protocol's 50/50 rule). Both tables are reproduced by `npm run balance` ([BALANCE.md](https://github.com/DEDQ3E/rare-royale/blob/5ba557323783f8e1f4ab73f68115eb04ab2de85b/BALANCE.md)).
+Four ways to spend: the entry, sponsoring any Friend, shouts and Locker cosmetics. Every payment except the entry burns 50% and funds 50% active Friend rewards (the protocol's 50/50 rule). Both tables are reproduced by `npm run balance` ([BALANCE.md](https://github.com/DEDQ3E/rare-royale/blob/1c0cc12382e8a1a5b9d91b34617bf84fa9d8ec1b/BALANCE.md)).
 
 **One real player, with no crowd at all** (3,000 simulated rounds per profile; a 10-minute session is about 2.3 rounds):
 
@@ -73,7 +73,7 @@ Live play would also need the reward-funding path from the Rare Friends team, ma
 The battle is deterministic from a round seed, so anyone can replay a round and check it. In the preview the seed is the round number, so everyone in the same minute gets the same island, line-up and base battle. Live, the seed stays unknown until the final: it mixes a Dice result drawn when entries close with a game secret whose hash is published before entries open and which is revealed after the final. A Dice result alone is public on-chain, so a bot could simulate the rest of a battle mid-round and buy only the items that flip the result; with the secret nobody can, nobody can pick the seed, and every round can still be checked afterwards.
 
 **Source code**
-[GitHub repository](https://github.com/DEDQ3E/rare-royale/tree/5ba557323783f8e1f4ab73f68115eb04ab2de85b) ([full rules and tables](https://github.com/DEDQ3E/rare-royale/blob/5ba557323783f8e1f4ab73f68115eb04ab2de85b/README.md)) · FriendSDK v0.1.4 · React, TypeScript, Canvas 2D, Web Audio.
+[GitHub repository](https://github.com/DEDQ3E/rare-royale/tree/1c0cc12382e8a1a5b9d91b34617bf84fa9d8ec1b) ([full rules and tables](https://github.com/DEDQ3E/rare-royale/blob/1c0cc12382e8a1a5b9d91b34617bf84fa9d8ec1b/README.md)) · FriendSDK v0.1.4 · React, TypeScript, Canvas 2D, Web Audio.
 
 **Playable demo / how to run**
 **Play: https://dedq3e.github.io/rare-royale/** (GitHub Pages, built with `friendsdk build`). You'll need a browser wallet on Robinhood mainnet (chain 4663) holding a hardwired Generations NFT (generation 1 or higher). No RF funding, signature or transaction is needed. To run it locally with Node.js 22+:
@@ -81,7 +81,7 @@ The battle is deterministic from a round seed, so anyone can replay a round and 
 ```sh
 git clone https://github.com/DEDQ3E/rare-royale.git
 cd rare-royale
-git checkout 5ba557323783f8e1f4ab73f68115eb04ab2de85b
+git checkout 1c0cc12382e8a1a5b9d91b34617bf84fa9d8ec1b
 npm ci
 npm run dev
 ```
@@ -96,8 +96,8 @@ Everything is simulated; you start with 20 RF. The prices are examples that scal
   - ladder with 50 paid entries: places 1–10 pay 8, 5, 4, 3, 2.5, then 1.5 RF each;
   - bounties: a knockout pays half the victim's bounty and adds the other half to your own head, the biggest head (once worth 0.4 RF or more) is marked WANTED, and the winner keeps its own;
   - a round with fewer than 5 paid entries refunds every entry; practice is free.
-- **Sponsoring:** a shield (soaks the next 30 damage) or a medkit (+45 HP) costs 1 RF. A second life costs 2, then 4, then 8 RF, at most 3 per Friend per round. Sponsoring closes at 25 standing.
-- **Looks:** shouts cost 1 RF, auras 2–5 RF and titles 1–5 RF.
+- **Sponsoring:** a shield (soaks the next 30 damage) or a medkit (+45 HP) costs 1 RF. A second life (within 5 s of a knockdown, back with 50% HP) costs 2, then 4, then 8 RF, at most 3 per Friend per round. Sponsoring closes at 25 standing.
+- **Looks:** a shout costs 1 RF; auras Ember and Frost 2 RF, Starfall 5 RF; titles Underdog 1, Showrunner 3, High Roller 5 RF (each once per session; challenge titles are free).
 - **Nothing is kept or redeemed:** sponsor items, shouts and looks act at once, so there are no consumables, backing or redemption rules.
 - **Odds per 1 RF entry** (6,000 simulated rounds):
   - any RF back 45.5%, 1 RF or more 20.1%, win 2.0%, average return 0.79 RF;
