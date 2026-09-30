@@ -23,7 +23,7 @@ Your Generations Friend lives in a cozy isometric house like a Sim, and everythi
 
 ## What did you build?
 
-A life sim with one star. The selected Friend moves into a 12 × 10 tile pixel house with a bedroom, a bathroom, a kitchen, a living room and a dining area, shown in isometric cut-away view with a day and night cycle and weather in the windows (cloudy, rain, snow, a storm). It has five needs (hunger, energy, fun, hygiene, social) and 32 things to do on 28 kinds of furniture: sleep, stargaze, bathe, cook, snack, eat dinner with you, watch TV, play video games, read, dance to the record player, play ball, paint, play the arcade and more. Click furniture to choose an action, or leave it alone and watch it choose by itself. The game opens close on the Friend, with the camera following it; the whole house is one tap away.
+A life sim with one star. The selected Friend moves into a 12 × 10 tile pixel house with a bedroom, a bathroom, a kitchen, a living room and a dining area, shown in isometric cut-away view with a day and night cycle and weather in the windows (cloudy, rain, snow, a storm). It has five needs (hunger, energy, fun, hygiene, social) and 34 things to do on 28 kinds of furniture: sleep, stargaze, bathe, cook, snack, eat dinner with you, watch TV, play video games, read, dance to the record player, play ball, paint, play the arcade and more. Click furniture to choose an action, or leave it alone and watch it choose by itself. The game opens close on the Friend, with the camera following it; the whole house is one tap away.
 
 The house is alive: the TV shows three channels and a video game, fish swim, the record turns, the pan sizzles, steam rises, bubbles pop in the bath, and the house has its own composed, synthesized soundtrack: a marimba morning, a swinging vibraphone afternoon, a lo-fi Rhodes evening, a music-box lullaby at night and a disco record to dance to, plus a sound for every activity. A hint always points to one thing in the house that raises the lowest need. Gift Boxes (the SDK chance game) give keepsakes for the hutch, and Buy mode adds furniture you place yourself. Everything lives inside the SDK's 960 × 640 container, with a compact layout for phones.
 
@@ -48,12 +48,12 @@ The Friend is the only character, and the game is about who it is.
 
   ![The day's recap card: Day 1 with Humippy](https://raw.githubusercontent.com/DEDQ3E/rare-friends-nook/main/media/recap.png)
 - **It sulks if you leave it alone.** Too long without attention and it sulks: an angry bubble, a line of its own family ("Even the clouds visited more.") and your requests refused until you make up by petting it, talking to it or opening a Gift Box together. Character decides how soon and how long: a Gen 1 sulks sooner and harder than a Gen 6, a Family Homebody fastest, a Hollow Introvert hardly ever.
-- **Simulated neighbours.** The front door opens a street of neighbours. FriendSDK has no multiplayer, so they are the SDK's two sample Friends (#3412, a Skeleton, and #7730, a Hoverer), played by the game and labelled *simulated* everywhere; they are not real players. A visit takes your Friend into the neighbour's whole house, decorated by its own family like yours (the Skeleton's Moonlit Manor, the Hoverer's Cloud Loft), where the neighbour lives by itself with its own free will. Your Friend is the guest: click the floor to walk around, or hug, say hi, dance or share a snack, and your Friend walks over to the neighbour; how it goes depends on both characters ("Instant besties", "A bit awkward"). Visits have consequences: the neighbour remembers the last one and greets you by it ("You again! Another dance?" or "Oh... it's you."), a good time together fills your Friend's need for company, and a shared snack comes out of your own stock.
+- **Neighbours: real Friends, simulated visits.** The front door opens a street of four real Generations Friends, played by the game. FriendSDK has no multiplayer, so every visit is *simulated* (each one is labelled "real Friend · simulated visit"), the owners are not involved and no owner data exists anywhere. They come from a recorded snapshot of 35 Friends (`games/friend-nook/street.json`, 46 KB: all nine families, Gen 1 to 6) whose canonical sprites were recorded once, at build time, from the SDK's pinned sprite registry, unmodified (`scripts/street.ts`; the Friends are picked from the roster of the builder's *Rare Royale* entry). At play time the game reads nothing from the network for them, because the SDK's test harness allows reading only your chosen Friend. The three closest to your token number "live next door"; one is "new this week", picked by a hash of the ISO week (UTC) and your token ID, so a street is stable for a token and a week. A generation is the one at the snapshot (2026-09-30) and changes when a Friend is promoted, so the card says "Gen N (at 2026-09-30)". If the snapshot were ever empty, the SDK's two sample Friends (#3412 and #7730) would move in instead. A visit takes your Friend into the neighbour's whole house, decorated by its own family like yours (a Mask's Backstage, a Hollow's Quiet Library), where the neighbour lives by itself with its own free will. Your Friend is the guest: click the floor to walk around, or hug, say hi, dance or share a snack, and your Friend walks over to the neighbour; how it goes depends on both characters ("Instant besties", "A bit awkward"). Visits have consequences: the neighbour remembers the last one and greets you by it ("You again! Another dance?" or "Oh... it's you."), a good time together fills your Friend's need for company, a shared snack comes out of your own stock, and the street names your best friend (the neighbour you had the most good moments with) in the panel and in the day recap.
 
   ![A simulated visit: Humippy dancing with Sux in Sux's Moonlit Manor](https://raw.githubusercontent.com/DEDQ3E/rare-friends-nook/main/media/visit.png)
 - **A relationship.** A *Meet your Friend* card opens first; seconds after the welcome the Friend makes its first own choice, something it loves, and the game says why on screen ("Humippy's own choice: float on the cloud — its family heirloom"; then at most once a minute); a diary records what it chose by itself, what it refused and which wishes you granted; friendship levels go from Stranger to Forever Friend.
 
-The SDK runtime handles the wallet, Friend selection and the ownership gate; the game adds no wallet code and never looks up other tokens.
+The SDK runtime handles the wallet, Friend selection and the ownership gate; the game adds no wallet code and, at play time, reads nothing about any token but your chosen Friend (the street's neighbours come from a recorded snapshot).
 
 ![The Meet your Friend card](https://raw.githubusercontent.com/DEDQ3E/rare-friends-nook/main/media/intro.png)
 
@@ -109,7 +109,7 @@ Not only the SDK's sample Friend: `tests/friends.mjs` runs the game's real SDK r
 
 ## How RF is spent, and the economy
 
-Four RF sinks, all simulated in the preview: **Gift Boxes** (1 RF, the SDK chance game: one of five keepsakes, 0.9165 RF back on average if sold), **food** (snacks and meals the Friend eats), **clothes** and **furniture** (Buy mode). Only keepsakes pay RF back. Personality never changes prices, odds or rewards. The RF prices are example values, set on the scale of the SDK's reference games (1 RF per consumable, about 0.90 RF back on average). To price higher, multiply every price and keepsake value by the same factor: the odds, the 91.65% average return and the balance between items stay the same.
+Six RF sinks, all simulated in the preview: **Gift Boxes** (1 RF, the SDK chance game: one of five keepsakes, 0.9165 RF back on average if sold), **food** (snacks and meals the Friend eats), **special treats** (1 RF, a wish it sometimes makes), the **birthday cake** (3 RF, once a session) and **clothes** and **furniture** (Buy mode). A small *RF burned* counter in the HUD opens *Where your RF went*: what each source cost this session (food, special treats, birthday cake, wardrobe, furniture), how much of it was burned and how much went to Friend rewards, with the Gift Boxes (the game's own stake, not burned) listed separately. Only keepsakes pay RF back. Personality never changes prices, odds or rewards. The RF prices are example values, set on the scale of the SDK's reference games (1 RF per consumable, about 0.90 RF back on average). To price higher, multiply every price and keepsake value by the same factor: the odds, the 91.65% average return and the balance between items stay the same.
 
 <details><summary><b>Prices, keepsake odds and session statistics</b></summary>
 
@@ -117,6 +117,8 @@ Four RF sinks, all simulated in the preview: **Gift Boxes** (1 RF, the SDK chanc
 |---|---|---|---|
 | **Gift Box** (SDK chance game) | 1 RF per box | one keepsake, worth 0.9165 RF on average when sold back | 8.35% edge stays in the game fund; every box reserves the 5 RF top prize |
 | **Food** (consumed by actions) | Snack pack ×4: 1 RF · Groceries ×3 meals: 2 RF | snacks for the fridge and bar, meals for the stove and family dinner | 50% burned, 50% to Friend rewards (proposed split) |
+| **Special treat** (extra, a wish) | 1 RF per portion, the Friend's favourite snack once that secret is found; it sometimes wishes for one, at most once a game day | a little extra friendship, and it reveals the favourite-snack secret | 50% burned, 50% to Friend rewards |
+| **Birthday cake** (extra, once a session) | 3 RF, after its birthday secret is found (on its real birthday, UTC, it says so) | a party at the dining table with the usual effects and sounds, a diary line and a line in the day recap | 100% burned |
 | **Wardrobe** (cosmetic) | 2–5 RF per piece, 32 RF for all ten | nothing: never refunded | 50% burned, 50% to Friend rewards |
 | **Buy mode** (durable furniture) | 2–6 RF per piece, 37 RF for all nine | new activities; pieces it loves make its needs drop slower, ones it dislikes faster; pieces can be moved or put away, never refunded | 50% burned, 50% to Friend rewards |
 
@@ -160,7 +162,7 @@ The hutch would read the Friend wallet's keepsake balances. Food, clothes and fu
 
 ## Source code
 
-https://github.com/DEDQ3E/rare-friends-nook (reviewed commit: [`8c9b626`](https://github.com/DEDQ3E/rare-friends-nook/tree/8c9b6267b448d6b47232bfda80b71c051b15d547)). FriendSDK v0.1.4, React 19, TypeScript, Canvas 2D, Web Audio. Everything is drawn and synthesized in code; no image or sound files.
+https://github.com/DEDQ3E/rare-friends-nook (reviewed commit: [`97399a2`](https://github.com/DEDQ3E/rare-friends-nook/tree/97399a24986fcd2ab012e202ba3398b1ed14e617)). FriendSDK v0.1.4, React 19, TypeScript, Canvas 2D, Web Audio. Everything is drawn and synthesized in code; no image or sound files.
 
 ## Playable demo / how to run
 
@@ -171,7 +173,7 @@ https://github.com/DEDQ3E/rare-friends-nook (reviewed commit: [`8c9b626`](https:
 ```sh
 git clone https://github.com/DEDQ3E/rare-friends-nook.git
 cd rare-friends-nook
-git checkout 8c9b6267b448d6b47232bfda80b71c051b15d547
+git checkout 97399a24986fcd2ab012e202ba3398b1ed14e617
 npm ci
 npm run dev
 ```
@@ -191,18 +193,18 @@ On Windows, `play.bat` serves the prebuilt `docs/` folder on http://localhost:41
 
 ## Costs and rewards
 
-Preview balance: 20 RF (simulated, from the SDK). Gift Box 1 RF (odds and values above). Snack pack ×4: 1 RF; Groceries ×3 meals: 2 RF; the house starts with 3 snacks and 2 meals. Clothes 2–5 RF, furniture 2–6 RF, never refunded. Only keepsakes pay RF back, at their fixed values, through the SDK's `redeem`. All prices are example values: to price higher, multiply every price and keepsake value by the same factor.
+Preview balance: 20 RF (simulated, from the SDK). Gift Box 1 RF (odds and values above). Snack pack ×4: 1 RF; Groceries ×3 meals: 2 RF; Special treat: 1 RF; Birthday cake: 3 RF (all burned); the house starts with 3 snacks and 2 meals. Clothes 2–5 RF, furniture 2–6 RF, never refunded. Only keepsakes pay RF back, at their fixed values, through the SDK's `redeem`. All prices are example values: to price higher, multiply every price and keepsake value by the same factor.
 
 ## What have you tested?
 
-Typecheck, `friendsdk check` and `friendsdk test` pass; browser checks cover furniture actions, the Gift Box through the SDK confirmations, Buy mode, a full unattended day, sound, phone sizes and 60 fps; ten real Friends were played live from mainnet; the whole game was also checked by hand with a real wallet on Robinhood mainnet, on a computer and on a phone; a docs check ties every number here to the code.
+Typecheck, `friendsdk check` and `friendsdk test` pass; browser checks cover furniture actions, the Gift Box through the SDK confirmations, Buy mode, a full unattended day, sound, phone sizes and 60 fps; ten real Friends were played live from mainnet; the game was also checked by hand with a real wallet on Robinhood mainnet, on a computer and on a phone (the special treat, birthday cake, RF panel and the street of real neighbours were added after that run and are covered by the browser tests); a docs check ties every number here to the code.
 
 <details><summary><b>All checks</b></summary>
 
 - `npm run typecheck`, `npm run check` (`friendsdk check`: valid, expected reward 0.9165 RF, maximum 5 RF), `npm test` (`friendsdk test`: PASS at 960 px).
 - Browser checks with the SDK test harness (Playwright): clicking furniture like a player (TV, bed, dinner, bath), the Gift Box through the SDK confirmations, Buy mode placing, a full unattended day at 3× (free will, wishes, night), the first own choice, secrets found by playing and the day's recap, sulking and making up, a visit to a simulated neighbour, random memes, activity close-ups with particles, a sound check (music and activity sounds are scheduled; muting stops them), phone sizes (844 × 390 and 390 × 844), and frame rate (60 fps).
 - **Real Friends:** `tests/friends.mjs` (above) plays ten real Friends read live from mainnet through the real SDK runtime, with no browser errors; the README screenshots use the same live reads for #7730.
-- **Real wallet:** everything was also checked by hand with a real wallet on Robinhood mainnet holding a Generations NFT, on the published build, on a computer and on a phone in the wallet app's browser: wallet connection, Friend selection and the ownership gate, the house, needs and free will, the Gift Box through the SDK confirmations, food, clothes and Buy mode (simulated economy, no RF spent), neighbour visits and memes. That run caught a FriendSDK v0.1.2 bug (a wallet holding a Friend found none on the public RPC); the build moved to the v0.1.3 hotfix, which finds it, and now runs on v0.1.4.
+- **Real wallet:** everything was also checked by hand with a real wallet on Robinhood mainnet holding a Generations NFT, on the published build, on a computer and on a phone in the wallet app's browser: wallet connection, Friend selection and the ownership gate, the house, needs and free will, the Gift Box through the SDK confirmations, food, clothes and Buy mode (simulated economy, no RF spent), neighbour visits and memes. That run caught a FriendSDK v0.1.2 bug (a wallet holding a Friend found none on the public RPC); the build moved to the v0.1.3 hotfix, which finds it, and now runs on v0.1.4. The special treat, the birthday cake, the *Where your RF went* panel, the street of real neighbours and the best-friend line were added after that hand run and are covered by the browser tests with the mock wallet.
 - **No transaction code:** The v0.1.4 preview bundle was scanned: neither `runtime.js` nor `game.js` contains transaction code (no `eth_sendTransaction`, `eth_sendRawTransaction`, signing, `writeContract` or ERC-20 `transferFrom`); the game reads the generation with a bare read-only client.
 - **Video:** `tests/video.mjs` records the demo above, picture and sound together, straight from the running game.
 - **Music:** `tests/music.mjs` records every track straight from the game's audio graph to check the mix (similar loudness across tracks, no clipping).
@@ -214,7 +216,7 @@ Typecheck, `friendsdk check` and `friendsdk test` pass; browser checks cover fur
 ## Known limitations
 
 - The SDK sandbox has no storage: a reload starts a fresh house, clock and friendship.
-- The SDK has no multiplayer, so the neighbours behind the front door are simulated: FriendSDK's two sample Friends, played by the game and labelled as such.
+- The SDK has no multiplayer, so visits to the neighbours behind the front door are simulated: real Friends from a snapshot recorded on 2026-09-30 (generations as of then), played by the game and labelled as such; their owners are not involved.
 - The automated checks and the demo video use the SDK's mock wallet (the real-wallet run is by hand): `friendsdk test` and the interaction tests use it with Friend #7730, whose simulated ledger always returns the first keepsake. The ten-Friend run reads real artwork and generations but mocks the wallet; no Hollow Friend was in the fixed list, so that family is covered by code only.
 - The generation is one public read of the Generations contract from inside the game (the same RPC the SDK sprite reader uses and the child CSP allows). It is never an ownership check; if it fails, the character uses medium strength.
 - Mobile needs the wallet app's browser; in portrait the 3:2 frame is small (the game suggests turning the phone).
@@ -223,4 +225,4 @@ Typecheck, `friendsdk check` and `friendsdk test` pass; browser checks cover fur
 
 ## Credits
 
-Game design, code, pixel art, music and sound: DEDQ3E. FriendSDK v0.1.4 and the Rare Friends Generations artwork by Rare Friends. The neighbours use the SDK's own sample Friend artwork (`examples/fishing/sample-sprites.ts`, SDK-supplied, see its NOTICE.md). The wardrobe fitting (`fit.ts`, `wardrobe.ts`) is reused from the builder's own entry *Rare Friends: Expeditions*. No third-party assets. License: Apache-2.0.
+Game design, code, pixel art, music and sound: DEDQ3E. FriendSDK v0.1.4 and the Rare Friends Generations artwork by Rare Friends. Neighbours: real Generations Friends, canonical sprites recorded from the SDK's pinned registry (same roster as Rare Royale), no owner data; only if the snapshot were empty would the SDK's own sample Friend artwork (`examples/fishing/sample-sprites.ts`, see its NOTICE.md) be used. The wardrobe fitting (`fit.ts`, `wardrobe.ts`) is reused from the builder's own entry *Rare Friends: Expeditions*. No third-party assets. License: Apache-2.0.
