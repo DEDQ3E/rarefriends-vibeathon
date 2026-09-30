@@ -1,12 +1,12 @@
 # Rare Friends: Expeditions
 
+![Night camp with a Friend in a wizard hat, scarf and cape](https://raw.githubusercontent.com/DEDQ3E/rare-friends-expeditions/main/media/camp-dressed.png)
+
 🕹️ **Play: https://dedq3e.github.io/rare-friends-expeditions/**
 
-🎬 **Gameplay video, 1 min** (camp and Expedition board, Whispering Forest, Crystal Cave, Sunken Ruins, each run ending at its chest; recorded with the SDK's mock wallet · [MP4 file](https://dedq3e.github.io/rare-friends-expeditions/demo.mp4)):
+🎬 **Gameplay video with sound (59 s):** the camp and the Expedition board, the Whispering Forest, the Crystal Cave and the Sunken Ruins, each run ending at its chest; recorded with the SDK's mock wallet (`tests/demo.mjs`, [MP4 file](https://dedq3e.github.io/rare-friends-expeditions/demo.mp4)).
 
-https://github.com/user-attachments/assets/80c94543-b745-46f0-9923-56c8511960c1
-
-![Night camp with a Friend in a wizard hat, scarf and cape](https://raw.githubusercontent.com/DEDQ3E/rare-friends-expeditions/main/media/camp-dressed.png)
+https://github.com/user-attachments/assets/95c689d1-fd6c-438c-8f66-f6f8ad552ca0
 
 **Project name**
 Rare Friends: Expeditions
@@ -90,7 +90,7 @@ Only the find is a paid random outcome. In the preview it comes from the SDK's s
 
 ## Source code
 
-[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`5475946`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/54759464cdef51ff8701cb92611fbd99ebb71845) · FriendSDK v0.1.4 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
+[GitHub repository](https://github.com/DEDQ3E/rare-friends-expeditions) · reviewed build: commit [`529b064`](https://github.com/DEDQ3E/rare-friends-expeditions/tree/529b064b10d8d800c54ff6ec7dc48faac69f1227) · FriendSDK v0.1.4 · React 19 · TypeScript · [Game rules](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/README.md) · [Economy (`game.json`)](https://github.com/DEDQ3E/rare-friends-expeditions/blob/main/games/expeditions/game.json)
 
 ## Playable demo / how to run
 
@@ -101,7 +101,7 @@ To run locally with Node.js 22+ on Linux, Windows with WSL2 (both supported by F
 ```sh
 git clone https://github.com/DEDQ3E/rare-friends-expeditions.git
 cd rare-friends-expeditions
-git checkout 54759464cdef51ff8701cb92611fbd99ebb71845
+git checkout 529b064b10d8d800c54ff6ec7dc48faac69f1227
 npm ci
 npm run dev        # http://localhost:4173
 ```
